@@ -1,4 +1,4 @@
-Title: Using Zwift with a Peloton - SmartSpin2k
+Title: Using Zwift with a Peloton: SmartSpin2k
 Date: 2025-03-14 20:29
 Category: General
 Tags: zwift, peloton, smartspin2k, android
