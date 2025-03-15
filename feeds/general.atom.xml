@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Forest's Blog - General</title><link href="https://forestdussault.com/" rel="alternate"></link><link href="https://forestdussault.com/feeds/general.atom.xml" rel="self"></link><id>https://forestdussault.com/</id><updated>2025-03-14T10:00:00-04:00</updated><entry><title>Test Post</title><link href="https://forestdussault.com/test-post.html" rel="alternate"></link><published>2025-03-14T10:00:00-04:00</published><updated>2025-03-14T10:00:00-04:00</updated><author><name>Forest Dussault</name></author><id>tag:forestdussault.com,2025-03-14:/test-post.html</id><summary type="html">&lt;p&gt;Testing my first blog post with Pelican&lt;/p&gt;</summary><content type="html">&lt;p&gt;Hello World! This is the content of my first blog post.&lt;/p&gt;
-&lt;h1&gt;Heading 1&lt;/h1&gt;
-&lt;p&gt;Pelican seems cool. I'm using the &lt;code&gt;cid&lt;/code&gt; theme.&lt;/p&gt;
-&lt;p&gt;Here's my GitHub fish to test out images:
-&lt;img alt="GitHub Fish" src="/images/github-fish.png" title="GitHub Fish"&gt;&lt;/p&gt;</content><category term="General"></category><category term="first"></category><category term="pelican"></category><category term="python"></category></entry></feed>
