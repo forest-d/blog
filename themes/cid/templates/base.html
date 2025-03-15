@@ -40,6 +40,7 @@
         <link href='https://fonts.googleapis.com/css?family=Gentium+Book+Basic|Merriweather:400,300' rel='stylesheet' type='text/css'>
         {% block stylesheets %}
         <link rel="stylesheet" href="{{ SITEURL }}/theme/css/cid.css">
+        <link rel="stylesheet" href="{{ SITEURL }}/theme/css/custom.css">
         {% endblock stylesheets %}
         {% if FEED_ALL_ATOM %}
         <link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Atom Feed" />
@@ -66,5 +67,6 @@
             </div>
         {% endblock container %}
         {% include "ga.html" %}
+    <script src="{{ SITEURL }}/theme/js/image-captions.js"></script>
     </body>
 </html>
