@@ -5,7 +5,8 @@
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
     <head>
         <meta charset="utf-8">
-        <title>Forest's Blog</title>
+        <title>    First Post
+</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href='https://fonts.googleapis.com/css?family=Gentium+Book+Basic|Merriweather:400,300' rel='stylesheet' type='text/css'>
@@ -30,27 +31,31 @@
     </nav>
 </header>
 
+    <div class="post">
 
-        <div class="post-list">
+        <header>
+            <h1>First Post</h1>
+            <p class="date">Written on <time datetime="2025-03-14T10:00:00-04:00">Mar 14, 2025</time></p>
+        </header>
+
+        <article>
+            <h1>Hello, world</h1>
+<p>I've decided to use <a href="https://github.com/getpelican/pelican">Pelican</a> + GitHub pages to build out this blog. It's a fairly straightforward and almost entirely free way of 
+hosting a blog (thanks GitHub). Even the image hosting is free! My only expense here is the domain name through Namecheap.</p>
+<p>The posts are written as Markdown files, which is comfy for me. I have a <code>Justfile</code> set up so I can type <code>just github</code> and the blog gets deployed.</p>
+<p>I'm using the <a href="https://github.com/hdra/Pelican-Cid">cid theme</a> as a base, it's clean enough and customizing it to my liking has been simple. </p>
+<p>Image embeds w/custom styling:
+<img alt="GitHub Fish" src="/images/github-fish.png" title="GitHub Fish"></p>
+<p>The blog itself is entirely contained in <a href="https://github.com/forest-d/blog">this repo</a>.</p>
+<p>Here's to many more blog posts.</p>
+        </article>
+
+        <footer>
+            <p>This entry is posted in <a href="https://forestdussault.com/category/general.html">General</a>.</p>
+        </footer>
 
 
-            <article class="post-overview">
-                <h2><a href="https://forestdussault.com/using-zwift-with-a-peloton.html">Using Zwift with a Peloton - SmartSpin2k</a></h2>
-                <time datetime="2025-03-14T20:29:00-04:00">Mar 14, 2025</time>
-                <div class="excerpt"><p>How I use Zwift with my OG Peloton</p></div>
-            </article>
-
-
-            <article class="post-overview">
-                <h2><a href="https://forestdussault.com/first-post.html">First Post</a></h2>
-                <time datetime="2025-03-14T10:00:00-04:00">Mar 14, 2025</time>
-                <div class="excerpt"><p>Testing my first blog post with Pelican</p></div>
-            </article>
-
-
-        </div>
-
-
+    </div>
 
 
 <footer class="blog-footer">

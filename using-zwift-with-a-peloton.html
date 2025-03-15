@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <title>    Using Zwift with a Peloton - SmartSpin2k
+</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href='https://fonts.googleapis.com/css?family=Gentium+Book+Basic|Merriweather:400,300' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="https://forestdussault.com/theme/css/cid.css">
+        <link rel="stylesheet" href="https://forestdussault.com/theme/css/custom.css">
+        <link href="https://forestdussault.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Forest's Blog Atom Feed" />
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+            <div class="container">
+
+<header class="blog-header">
+    <h1><a href="https://forestdussault.com">Forest's Blog</a></h1>
+    <p></p>
+    <nav>
+        <a href="https://forestdussault.com/">INDEX</a>
+        <a href="https://forestdussault.com/archives">ARCHIVES</a>
+        <a href="https://forestdussault.com/categories">CATEGORIES</a>
+    </nav>
+</header>
+
+    <div class="post">
+
+        <header>
+            <h1>Using Zwift with a Peloton - SmartSpin2k</h1>
+            <p class="date">Written on <time datetime="2025-03-14T20:29:00-04:00">Mar 14, 2025</time></p>
+        </header>
+
+        <article>
+            <p>Cycling is great, though not so great during a Canadian winter. I've wanted to try out the gamified cycling world of <a href="www.zwift.com">Zwift</a> for some 
+time now, alas, I do not own a trainer. </p>
+<p>I do however have an original Peloton bike... and the Peloton in theory has all the essential hardware to work with Zwift,
+so we should be able to figure something out here, right?</p>
+<p>Thanks to the hard work of a couple of talented folks, this process is relatively straightfoward for someone who 
+likes to tinker. At a high level, what we need is the following:</p>
+<ol>
+<li>A way to install or display Zwift on our Peloton</li>
+<li>A way to send sensor data (cadence, power) from the Peloton to Zwift</li>
+</ol>
+<p>Turns out that the <a href="https://www.smartspin2k.com/">SmartSpin2k</a> solves this entirely!</p>
+<h2>1. Zwift + Peloton</h2>
+<p>Our first problem: how do we install Android apps on a Peloton? </p>
+<p>At its core, the Peloton is a big Android 
+tablet slapped onto an exercise bike. Out of the box, users are not able to install other Android apps onto the Peloton. 
+However, <a href="https://github.com/doudar">Anthony Doud</a> has 
+developed the excellent <a href="https://github.com/doudar/OpenPelo">OpenPelo</a> tool, 
+which allows us install a custom launcher and several other handy Android apps onto the Peloton. 
+I followed the corresponding <a href="https://www.youtube.com/watch?v=Q5XIlXqa0Cg">YouTube tutorial</a> without any issues and had 
+my Peloton running the new launcher in about 20 minutes.</p>
+<p>Ideally we'd be able to install the <a href="https://play.google.com/store/apps/details?id=com.zwift.zwiftgame&amp;hl=en_CA">Android Zwift app</a> on the Peloton, 
+however the onboard storage of the original Peloton bike is too small to handle the Zwift installation.
+Instead we can make use of the classic <a href="https://github.com/LizardByte/Sunshine">Sunshine</a> + <a href="https://github.com/moonlight-stream">Moonlight</a> setup to stream Zwift 
+remotely from a desktop PC.
+(<em>This incidentally is also how I stream games from my desktop PC to my Steam Deck - it works great</em>)</p>
+<p><img alt="Zwift on Peloton" src="/images/zwift-with-peloton/it_works.JPEG" title="Zwift streamed via Moonlight to the Peloton tablet"></p>
+<h2>2. Relaying Peloton sensor data to Zwift</h2>
+<p>The <a href="https://www.smartspin2k.com/">SmartSpin2k</a> is at the heart of this setup. It's an awesome project developed 
+by the aformentioned Anthony Doud. The SmartSpin2k is a 3D printed piece of hardware that reads from the Peloton cadence 
+and power sensors, and acts as a Bluetooth device that can forward this data along to a connected device. </p>
+<p><img alt="Sensor Connection" src="/images/zwift-with-peloton/sensor_connection.JPEG" title="Rerouting Peloton sensor data to the SmartSpin2k"></p>
+<p>Crucially, it is also able to relay Zwift commands to a motor that can rotate the Peloton's resistance knob on your 
+behalf. Once set up correctly, the SmartSpin2k will automatically adjust the Peloton's resistance according to the 
+grade or ERG setup on the active Zwift course.</p>
+<p><img alt="SmartSpin2k" src="/images/zwift-with-peloton/smartspin2k.JPEG" title="SmartSpin2k motorized resistance controller"></p>
+<p><img alt="SmartSpin2k Shifter" src="/images/zwift-with-peloton/shifter.JPEG" title="SmartSpin2k gear shifter, allows for manual adjustments to resistance"></p>
+<p>I bought mine from <a href="https://www.etsy.com/listing/1356903775/smartspin2k-v3-spin-bike-smart-trainer?etsrc=sdt">eMadmanMakes</a>, 
+who 3D prints and assembles the devices for Canadian users. All in it was around $400 CAD, which had me hesitant at first, 
+though now that I've been living with it for a few weeks I have no regrets. It's a well-made and functional tool.</p>
+<p>Installation was very easy and took around 10 minutes. The <a href="https://docs.smartspin2k.com/documentation/configuration.html">guide</a> is also quite comprehensive and covers several other 
+potential configurations.</p>
+<h2>Zwifting</h2>
+<p>Now that the setup is done, I can use my Peloton to Zwift! I can also still use the Peloton bike as a regular 
+Peloton whenever I like, so there's been no loss in functionality. </p>
+<p>Zwift in general has been more fun for me than the Peloton cycling classes. It feels closer to a real bike ride, and I 
+can listen to my own playlists instead of enduring whatever torturous tracks Peloton has licensed. The feeling of approaching an 
+incline and having the SmartSpin2k automatically increase the resistance is very cool, and tricks my brain just enough to make me feel like 
+I'm actually biking up a hill. It's great motivation to bike a little harder during a workout. </p>
+<h2>Miscellaneous irritations</h2>
+<p>While setting this up I suffered several indiginites and annoyances. I should stress that none of these were related to 
+OpenPelo or the SmartSpin2k. Instead, these were issues unique to my home setup.  </p>
+<p>Getting Zwift to connect to the SmartSpin2k required some finesse. A simple Bluetooth connection from the SmartSpin2K to my Desktop PC 
+was not working for me. The connection was too sketchy, and the weak little USB Bluetooth adapter I have is simply not up 
+for the task of connecting to a device 10 ft away.</p>
+<p><img alt="Bluetooth Adapater" src="/images/zwift-with-peloton/bluetooth_adapter.JPEG" title="An inadequate Bluetooth adapter"></p>
+<p>Instead, I ended up connecting the SmartSpin2K to my iPhone via Bluetooth. Turns out there is a <a href="https://apps.apple.com/us/app/zwift-companion/id934083691">mobile companion app</a> 
+for Zwift (aptly named <code>Companion</code>) which is able to act as the intermediary between your sensors and Zwift. 
+However, this app is only able to connect to Zwift 
+<strong>if the 2 applications are on the same WiFi network</strong>. This took me some time to realize, and I struggled to get the 
+companion app to connect to Zwift initially. </p>
+<p>For reasons I will detail in a later blog, my desktop PC is on a separate subnet and is connected to the Internet via 
+an ethernet cable running to a switch. Thankfully I have a WiFi adapter set up on my PC, so I turned that 
+network adapter on and voilà, Zwift and the Companion app could connect.</p>
+<p><img alt="WiFi Adapater" src="/images/zwift-with-peloton/wifi_adapter.JPEG" title="The WiFi adapter that saved the day"></p>
+<p>However, the connection still intermittently drops out during rides. I'm not sure what's causing this instability. 
+The interuptions last 1-2 seconds and aren't a dealbreaker, but they are a distraction during a ride.</p>
+        </article>
+
+        <footer>
+            <p>This entry is posted in <a href="https://forestdussault.com/category/general.html">General</a>.</p>
+        </footer>
+
+
+    </div>
+
+
+<footer class="blog-footer">
+
+    <ul class="nav">
+    </ul>
+
+    <p class="disclaimer">
+    Built with <a href="http://getpelican.com">Pelican</a>, and <a href="https://github.com/hdra/Pelican-Cid">Cid</a> theme.
+    </p>
+</footer>
+            </div>
+    <script src="https://forestdussault.com/theme/js/image-captions.js"></script>
+    </body>
+</html>

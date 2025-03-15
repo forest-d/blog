@@ -1,0 +1,43 @@
+/* Custom styling for images */
+.post img {
+    max-width: 65%; /* Make images a bit smaller than the default 100% */
+    height: auto;
+    border: 1px solid #ddd; /* Add a light gray border */
+    padding: 5px; /* Add some padding around the image */
+    border-radius: 3px; /* Slightly rounded corners */
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1); /* Subtle shadow */
+    margin: 1.5em auto; /* Keep the auto margin to center images */
+}
+
+/* Image caption styling */
+.image-container {
+    display: block;
+    margin: 1.5em auto;
+    text-align: center;
+    max-width: 85%;
+    font-size: 0;  /* Remove any potential whitespace */
+    line-height: 0;
+}
+
+.image-container img {
+    margin: 0 auto 0 auto; /* Remove ALL margins except auto for horizontal centering */
+}
+
+.image-caption {
+    display: block;
+    text-align: center;
+    color: #666;
+    font-size: 12pt;
+    font-style: italic;
+    padding: 4px;
+    margin: 0;
+    line-height: 1;
+    position: relative;
+    top: -1px; /* Slightly move caption up */
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    border-radius: 0 0 3px 3px;
+    box-sizing: border-box;
+    width: auto;
+}
