@@ -32,6 +32,3 @@ DEFAULT_PAGINATION = False
 THEME = "/home/forest/pelican-themes/cid"
 
 STATIC_PATHS = ['images', 'extra']
-EXTRA_PATH_METADATA = {
-    'extra/CNAME': {'path': 'CNAME'},
-}
