@@ -50,7 +50,7 @@ publish:
 # Upload the website via gh-pages
 github: publish
     git pull
-    ghp-import -m "{{GITHUB_PAGES_COMMIT_MESSAGE}}" -b {{GITHUB_PAGES_BRANCH}} "{{OUTPUTDIR}}" --no-jekyll
+    ghp-import -m "{{GITHUB_PAGES_COMMIT_MESSAGE}}" -b {{GITHUB_PAGES_BRANCH}} "{{OUTPUTDIR}}" --no-jekyll --cname=forestdussault.com
     git push origin {{GITHUB_PAGES_BRANCH}}
 
 # Enable debugging mode
