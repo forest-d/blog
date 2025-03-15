@@ -49,6 +49,7 @@ publish:
 
 # Upload the website via gh-pages
 github: publish
+    git pull
     ghp-import -m "{{GITHUB_PAGES_COMMIT_MESSAGE}}" -b {{GITHUB_PAGES_BRANCH}} "{{OUTPUTDIR}}" --no-jekyll
     git push origin {{GITHUB_PAGES_BRANCH}}
 
