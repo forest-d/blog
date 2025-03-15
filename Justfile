@@ -10,6 +10,7 @@ GITHUB_PAGES_BRANCH := "gh-pages"
 GITHUB_PAGES_COMMIT_MESSAGE := "Generate Pelican site"
 SERVER := "0.0.0.0"
 PORT := "8000"
+CNAME := "forestdussault.com"
 
 # Default recipe (this will run when you just type 'just')
 default:
@@ -50,7 +51,7 @@ publish:
 # Upload the website via gh-pages
 github: publish
     git pull
-    ghp-import -m "{{GITHUB_PAGES_COMMIT_MESSAGE}}" -b {{GITHUB_PAGES_BRANCH}} "{{OUTPUTDIR}}" --no-jekyll --cname=forestdussault.com
+    ghp-import -m "{{GITHUB_PAGES_COMMIT_MESSAGE}}" -b {{GITHUB_PAGES_BRANCH}} "{{OUTPUTDIR}}" --no-jekyll --cname="{{CNAME}}"
     git push origin {{GITHUB_PAGES_BRANCH}}
 
 # Enable debugging mode
