@@ -1,29 +1,28 @@
-AUTHOR = 'Forest Dussault'
+AUTHOR = "Forest Dussault"
 SITENAME = "Forest's Blog"
-SITEURL = ""
+SITEURL = "https://www.forestdussault.com"
 
 PATH = "content"
 
-TIMEZONE = 'America/Toronto'
+TIMEZONE = "America/Toronto"
 
-DEFAULT_LANG = 'en'
+DEFAULT_LANG = "en"
 
-# Feed generation is usually not desired when developing
 FEED_ALL_ATOM = None
 CATEGORY_FEED_ATOM = None
 TRANSLATION_FEED_ATOM = None
 AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 
-# Blogroll
-LINKS = (
-    # ("You can modify those links in your config file", "#"),
+# Contact links for the footer
+CONTACTS = (
+    ('LinkedIn', 'https://linkedin.com/in/forest-dussault'),
+    ('GitHub', 'https://github.com/forest-d'),
+    ('ORCID', 'https://orcid.org/0000-0002-6883-1308'),
 )
 
-# Social widget
-SOCIAL = (
-    # ("You can add links in your config file", "#"),
-)
+# Email address for the footer
+CONTACT_EMAIL = "forestdussault@gmail.com"
 
 DEFAULT_PAGINATION = False
 
@@ -31,4 +30,4 @@ DEFAULT_PAGINATION = False
 # RELATIVE_URLS = True
 THEME = "themes/cid"
 
-STATIC_PATHS = ['images', 'extra']
+STATIC_PATHS = ["images"]
