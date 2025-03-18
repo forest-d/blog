@@ -1,5 +1,4 @@
 <footer class="blog-footer">
-
     <ul class="nav">
         {% if USE_CUSTOM_MENU %}
             {% for name, url in CUSTOM_MENUITEMS %}
@@ -11,16 +10,25 @@
             {% endfor %}
         {% endif %}
         {% for title,url in CONTACTS %}
-            <li><a href="{{ url }}">{{ title|capitalize }}</a></li>
+            {% if title|lower == 'linkedin' %}
+                <li><a href="{{ url }}"><i class="fab fa-linkedin"></i></a></li>
+            {% elif title|lower == 'github' %}
+                <li><a href="{{ url }}"><i class="fab fa-github"></i></a></li>
+            {% elif title|lower == 'orcid' %}
+                <li><a href="{{ url }}"><i class="fab fa-orcid"></i></a></li>
+            {% else %}
+                <li><a href="{{ url }}"></a></li>
+            {% endif %}
         {% endfor %}
-        {% include 'email.html' %}
+        {% if CONTACT_EMAIL %}
+            <li><a href="mailto:{{ CONTACT_EMAIL }}" rel="nofollow"><i class="fas fa-envelope"></i></a></li>
+        {% endif %}
     </ul>
 
     <p class="disclaimer">
     {% if SITEFOOTER %}
         {{ SITEFOOTER }}
     {% else %}
-    Built with <a href="http://getpelican.com">Pelican</a>, and <a href="https://github.com/hdra/Pelican-Cid">Cid</a> theme.
     {% endif %}
     </p>
 </footer>

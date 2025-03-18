@@ -41,3 +41,27 @@
     box-sizing: border-box;
     width: auto;
 }
+
+/* Enhance footer links */
+.blog-footer .nav {
+    margin-bottom: 1.5em;
+}
+
+.blog-footer .nav li {
+    margin: 0 12px;
+    display: inline-block;
+}
+
+.blog-footer .nav li a {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 3px;
+    transition: background-color 0.2s ease;
+    color: #333;
+    text-decoration: none;
+}
+
+.blog-footer .nav li a:hover {
+    background-color: #f0f0f0;
+    text-decoration: underline;
+}
