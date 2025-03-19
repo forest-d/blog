@@ -1,6 +1,6 @@
 AUTHOR = "Forest Dussault"
 SITENAME = "Forest's Blog"
-SITEURL = "https://www.forestdussault.com"
+SITEURL = ""
 
 PATH = "content"
 
