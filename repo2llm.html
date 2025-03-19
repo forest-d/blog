@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <title>    repo2llm
+</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href='https://fonts.googleapis.com/css?family=Gentium+Book+Basic|Merriweather:400,300' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        <link rel="stylesheet" href="https://forestdussault.com/theme/css/cid.css">
+        <link rel="stylesheet" href="https://forestdussault.com/theme/css/custom.css">
+        <link href="https://forestdussault.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Forest's Blog Atom Feed" />
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+            <div class="container">
+
+<header class="blog-header">
+    <h1><a href="https://forestdussault.com">Forest's Blog</a></h1>
+    <p></p>
+    <nav>
+        <a href="https://forestdussault.com/">INDEX</a>
+        <a href="https://forestdussault.com/archives">ARCHIVES</a>
+        <a href="https://forestdussault.com/categories">CATEGORIES</a>
+    </nav>
+</header>
+
+    <div class="post">
+
+        <header>
+            <h1>repo2llm</h1>
+            <p class="date">Written on <time datetime="2025-03-18T22:01:00-04:00">Mar 18, 2025</time></p>
+        </header>
+
+        <article>
+            <h2><code>repo2llm</code></h2>
+<p>A few months back I hacked together <a href="https://github.com/forest-d/repo2llm">repo2llm</a>, a <code>pip</code> package that allows 
+users to copy directory contents to their clipboard. It's built specifically for passing along context from coding 
+projects to an LLM like Claude or ChatGPT (typically through their respective web UIs).</p>
+<p>I wrote the tool for my own sake. I found myself copying the contents of coding projects into Claude frequently, 
+and I was getting tired of going through the motions of collecting all the necessary context for my question(s). Now, 
+by writing <code>repo2llm .</code> into my terminal, I'm able to grab all the files in the project in a structured manner and 
+paste them into Claude's generous context window. This works great for relatively small projects,</p>
+<p>When constructing the contents for the user's clipboard, files are tagged according to their location in the repo. 
+For example, here's the abbreviated output from <code>repo2llm ./content</code> in the source code for this blog:</p>
+<div class="highlight"><pre><span></span><code>&lt;file name=&quot;01-first-post.md&quot;&gt;
+...
+&lt;/file&gt;
+
+&lt;file name=&quot;02-using-zwift-with-a-peloton.md&quot;&gt;
+...
+&lt;/file&gt;
+
+&lt;file name=&quot;03-repo2llm.md&quot;&gt;
+...
+&lt;/file&gt;
+
+&lt;file name=&quot;images/__init__.py&quot;&gt;
+...
+&lt;/file&gt;
+</code></pre></div>
+
+<p>I also built in some sensible defaults for ignoring files and directories, e.g. Python venvs, <code>.git/</code>, <code>node_modules/</code>, 
+and so on. These can be easily overridden if needed via a <code>.repo2llm</code> config file placed in the working directory.</p>
+<h2>Cursor et. al</h2>
+<p>Yes, there are many, many alternatives to this tool. Indeed, I use <a href="https://www.cursor.com/en">Cursor</a> myself 
+occasionally. However, I still find myself reaching for my own tool for several reasons:</p>
+<ol>
+<li>It's very easy to collect exactly the context I need</li>
+<li>I like using Claude's web UI, and this tool works well with it</li>
+<li>It feels good to make use of something you've built yourself</li>
+</ol>
+<p>That said, it's clear that AI assisted coding is becoming more sophisticated every day. I fully 
+expect <code>repo2llm</code> to become obsolete for me within the year. Personally, I'm hoping JetBrains is able to get their 
+<a href="https://www.jetbrains.com/ai/">AI IDE product</a> on a level comparable with Cursor - it's not even close right now. 
+PyCharm is my favourite IDE, though it's woefully behind in terms of AI integration as of writing.</p>
+        </article>
+
+        <footer>
+            <p>This entry is posted in <a href="https://forestdussault.com/category/software.html">Software</a>.</p>
+        </footer>
+
+
+    </div>
+
+
+<footer class="blog-footer">
+    <ul class="nav">
+                <li><a href="https://linkedin.com/in/forest-dussault"><i class="fab fa-linkedin"></i></a></li>
+                <li><a href="https://github.com/forest-d"><i class="fab fa-github"></i></a></li>
+                <li><a href="https://orcid.org/0000-0002-6883-1308"><i class="fab fa-orcid"></i></a></li>
+            <li><a href="mailto:forestdussault@gmail.com" rel="nofollow"><i class="fas fa-envelope"></i></a></li>
+    </ul>
+
+    <p class="disclaimer">
+    </p>
+</footer>
+            </div>
+    <script src="https://forestdussault.com/theme/js/image-captions.js"></script>
+    </body>
+</html>

@@ -1,5 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Forest's Blog</title><link href="https://forestdussault.com/" rel="alternate"></link><link href="https://forestdussault.com/feeds/all.atom.xml" rel="self"></link><id>https://forestdussault.com/</id><updated>2025-03-14T20:29:00-04:00</updated><entry><title>Using Zwift with a Peloton: SmartSpin2k</title><link href="https://forestdussault.com/using-zwift-with-a-peloton.html" rel="alternate"></link><published>2025-03-14T20:29:00-04:00</published><updated>2025-03-14T20:29:00-04:00</updated><author><name>Forest Dussault</name></author><id>tag:forestdussault.com,2025-03-14:/using-zwift-with-a-peloton.html</id><summary type="html">&lt;p&gt;How I use Zwift with my OG Peloton&lt;/p&gt;</summary><content type="html">&lt;p&gt;Cycling is great, though not so great during a Canadian winter. I've wanted to try out the gamified cycling world of &lt;a href="www.zwift.com"&gt;Zwift&lt;/a&gt; for some 
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Forest's Blog</title><link href="https://forestdussault.com/" rel="alternate"></link><link href="https://forestdussault.com/feeds/all.atom.xml" rel="self"></link><id>https://forestdussault.com/</id><updated>2025-03-18T22:01:00-04:00</updated><entry><title>repo2llm</title><link href="https://forestdussault.com/repo2llm.html" rel="alternate"></link><published>2025-03-18T22:01:00-04:00</published><updated>2025-03-18T22:01:00-04:00</updated><author><name>Forest Dussault</name></author><id>tag:forestdussault.com,2025-03-18:/repo2llm.html</id><summary type="html">&lt;p&gt;Brief overview of my tool repo2llm&lt;/p&gt;</summary><content type="html">&lt;h2&gt;&lt;code&gt;repo2llm&lt;/code&gt;&lt;/h2&gt;
+&lt;p&gt;A few months back I hacked together &lt;a href="https://github.com/forest-d/repo2llm"&gt;repo2llm&lt;/a&gt;, a &lt;code&gt;pip&lt;/code&gt; package that allows 
+users to copy directory contents to their clipboard. It's built specifically for passing along context from coding 
+projects to an LLM like Claude or ChatGPT (typically through their respective web UIs).&lt;/p&gt;
+&lt;p&gt;I wrote the tool for my own sake. I found myself copying the contents of coding projects into Claude frequently, 
+and I was getting tired of going through the motions of collecting all the necessary context for my question(s). Now, 
+by writing &lt;code&gt;repo2llm .&lt;/code&gt; into my terminal, I'm able to grab all the files in the project in a structured manner and 
+paste them into Claude's generous context window. This works great for relatively small projects,&lt;/p&gt;
+&lt;p&gt;When constructing the contents for the user's clipboard, files are tagged according to their location in the repo. 
+For example, here's the abbreviated output from &lt;code&gt;repo2llm ./content&lt;/code&gt; in the source code for this blog:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&amp;lt;file name=&amp;quot;01-first-post.md&amp;quot;&amp;gt;
+...
+&amp;lt;/file&amp;gt;
+
+&amp;lt;file name=&amp;quot;02-using-zwift-with-a-peloton.md&amp;quot;&amp;gt;
+...
+&amp;lt;/file&amp;gt;
+
+&amp;lt;file name=&amp;quot;03-repo2llm.md&amp;quot;&amp;gt;
+...
+&amp;lt;/file&amp;gt;
+
+&amp;lt;file name=&amp;quot;images/__init__.py&amp;quot;&amp;gt;
+...
+&amp;lt;/file&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;I also built in some sensible defaults for ignoring files and directories, e.g. Python venvs, &lt;code&gt;.git/&lt;/code&gt;, &lt;code&gt;node_modules/&lt;/code&gt;, 
+and so on. These can be easily overridden if needed via a &lt;code&gt;.repo2llm&lt;/code&gt; config file placed in the working directory.&lt;/p&gt;
+&lt;h2&gt;Cursor et. al&lt;/h2&gt;
+&lt;p&gt;Yes, there are many, many alternatives to this tool. Indeed, I use &lt;a href="https://www.cursor.com/en"&gt;Cursor&lt;/a&gt; myself 
+occasionally. However, I still find myself reaching for my own tool for several reasons:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;It's very easy to collect exactly the context I need&lt;/li&gt;
+&lt;li&gt;I like using Claude's web UI, and this tool works well with it&lt;/li&gt;
+&lt;li&gt;It feels good to make use of something you've built yourself&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;That said, it's clear that AI assisted coding is becoming more sophisticated every day. I fully 
+expect &lt;code&gt;repo2llm&lt;/code&gt; to become obsolete for me within the year. Personally, I'm hoping JetBrains is able to get their 
+&lt;a href="https://www.jetbrains.com/ai/"&gt;AI IDE product&lt;/a&gt; on a level comparable with Cursor - it's not even close right now. 
+PyCharm is my favourite IDE, though it's woefully behind in terms of AI integration as of writing.&lt;/p&gt;</content><category term="Software"></category><category term="python"></category><category term="llm"></category><category term="claude"></category><category term="chatgpt"></category><category term="cursor"></category><category term="ai"></category></entry><entry><title>Using Zwift with a Peloton: SmartSpin2k</title><link href="https://forestdussault.com/using-zwift-with-a-peloton.html" rel="alternate"></link><published>2025-03-14T20:29:00-04:00</published><updated>2025-03-14T20:29:00-04:00</updated><author><name>Forest Dussault</name></author><id>tag:forestdussault.com,2025-03-14:/using-zwift-with-a-peloton.html</id><summary type="html">&lt;p&gt;How I use Zwift with my OG Peloton&lt;/p&gt;</summary><content type="html">&lt;p&gt;Cycling is great, though not so great during a Canadian winter. I've wanted to try out the gamified cycling world of &lt;a href="www.zwift.com"&gt;Zwift&lt;/a&gt; for some 
 time now, alas, I do not own a trainer. &lt;/p&gt;
 &lt;p&gt;I do however have an original Peloton bike... and the Peloton in theory has all the essential hardware to work with Zwift,
 so we should be able to figure something out here, right?&lt;/p&gt;
