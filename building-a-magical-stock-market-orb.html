@@ -52,19 +52,19 @@ It's quite satisfying to glance across the room and immediately know how your pr
 <p><img alt="Orb WiFi" src="images/stock-market-orb/orb_wifi.png" title="WiFi network selection"></p>
 <p>The user connects to this network, then navigates to <code>http://orb.config</code> to input their WiFi information and <a href="https://finnhub.io/">Finnhub</a> API key.</p>
 <p><img alt="Web Setup" src="images/stock-market-orb/orb_setup.png" title="WiFi setup page for the Orb"></p>
-<p>Once the setup is done, the user switches back to their home network and is able to enjoy the joys of the orb. 
-If desired, it can be managed further through the local setup page at <code>http://orb.local</code>.</p>
+<p>Once the setup is done, the user switches back to their home network and is able to enjoy their orb. 
+If desired, it can be configured further through the local setup page at <code>http://orb.local</code>.</p>
 <p><img alt="Web Config" src="images/stock-market-orb/orb_local.png" title="Configuration page for the Orb"></p>
 <h2>LLMs as Pedagogical Tools</h2>
 <p>I had essentially zero embedded electronics experience going into this. To approach the project, I used Claude with the 
-Projects feature as a learning tool. This was very effective. The LLM helped me:</p>
+<a href="https://www.anthropic.com/news/projects">Projects feature</a> as a learning tool. This was very effective. The LLM helped me:</p>
 <ul>
 <li>Determine what components and tools to buy (ESP32-S3 dev board, WS2812B LED ring, perfboards, etc)</li>
-<li>Select software (Arduino IDE, KiCad)</li>
+<li>Select software (<a href="https://www.arduino.cc/en/software/">Arduino IDE</a>, <a href="https://www.kicad.org/">KiCad</a>)</li>
 <li>Understand pin configurations/wiring diagrams</li>
 </ul>
 <p>The barrier to entry was massively reduced thanks to help from an LLM. </p>
-<p>I could of course have completed the necessary background research independently, though I likely saved days (weeks?) of time. 
+<p>I could, of course, have completed the necessary background research independently, though I likely saved days (weeks?) of time. 
 I don't think this is a suitable approach for becoming an <em>expert</em> in any field, though for a hobby-level understanding of a new subject, this approach works great. </p>
 <p>This is a dead simple project. The circuit is a resistor, an LED ring, and an ESP32-S3 - that's it. However, it 
 felt great to get it all prototyped and eventually built.</p>
@@ -80,32 +80,32 @@ felt great to get it all prototyped and eventually built.</p>
 <p>The resulting code handles WiFi configuration through a captive portal, fetches stock data every 30 seconds, and smoothly animates between market states. 
 Once again, I could have done this without the aid of an LLM, but it would have taken me considerably longer to achieve the same result. </p>
 <h2>Component Selection</h2>
-<p>The build uses two main components which I purchased from AliExpress:</p>
+<p>The build uses two main electronic components, which I purchased from AliExpress:</p>
 <ul>
 <li><strong>ESP32-S3 development board</strong> (~$6): Provides WiFi connectivity, sufficient GPIO pins, and enough processing power for HTTP requests and LED control</li>
 <li><strong>WS2812B LED ring with 16 LEDs</strong> (~$3): Individually addressable RGB LEDs arrayed in a ring</li>
 </ul>
 <p><img alt="ESP32-S3" src="images/stock-market-orb/esp32s3_on_perfboard.JPEG" title="The ESP32-S3 is amazing"></p>
 <p><img alt="Perfboard Setup" src="images/stock-market-orb/perfboard_with_hot_glue.JPEG" title="This goes into the orb housing"></p>
-<p>Total component cost under $10. The ESP32-S3 blew me away with its capabilities - a full microcontroller with WiFi and Bluetooth for roughly $5 CAD. Amazing! </p>
+<p>The <a href="https://www.espressif.com/en/products/socs/esp32-s3">ESP32-S3</a> blew me away with its capabilities and miniscule form factor for such an inexpensive part. It's a dual-core microcontroller with WiFi and Bluetooth for $6 CAD. Amazing!</p>
 <p>A single 220Ω resistor protects the LED data line, and the entire circuit runs off USB power through the dev board's built-in voltage regulation.</p>
 <p><img alt="Housing the Orb" src="images/stock-market-orb/circuit_attachment_to_orb.JPEG" title="This mess is held together by hot glue and bamboo skewer sticks"></p>
 <h2>Stock Market Data APIs</h2>
-<p>I was surprised at how expensive real-time financial data is. Many providers charge $20-100+ monthly for basic quote access. After evaluating several options:</p>
+<p>I was surprised at how expensive real-time financial data is. Many providers charge $30-$100+ monthly for basic quote access. I narrowed the products down to several options:</p>
 <ul>
-<li><strong>Yahoo Finance</strong>: Free but unreliable and unofficial</li>
+<li><strong>Yahoo Finance</strong>: Free, but unofficial and unreliable</li>
 <li><strong>Alpha Vantage</strong>: Decent free tier but limited requests</li>
 <li><strong>Finnhub</strong>: 60 API calls per minute free tier, perfect for 30-second updates</li>
 </ul>
-<p>Finnhub turned out to be the easiest free option for this particular project. </p>
+<p>Finnhub turned out to be the easiest free option for this particular project. In the future I'll likely add calls to Yahoo Finance as a fallback to cope with usage issues or Finnhub outages. </p>
 <h2>Shipping to Prod</h2>
-<p>I'm interested in taking a swing at producing some volume of these as a consumer product. It's dumb and memeable, so maybe some other 
+<p>I'm interested in attempting to produce a small volume of these beautiful orbs as consumer products. It's dumb and memeable, so maybe some other 
 people will buy one (or several!). Mostly though, I'm interested in finding out what it takes to have a custom IoT device manufactured and<br>
 sold to paying customers at a small hobby-level scale.</p>
 <p>Next steps:</p>
 <ul>
-<li>Design a PCB and figure out how much it costs to get it built</li>
-<li>Design/model the Orb housing in modelling software for eventual 3D printing</li>
+<li>Design a PCB and figure out how much it costs to get it built. <a href="https://www.pcbway.com/">PCBWay</a> seems to be a commonly used route here. </li>
+<li>Design/model the Orb housing in modeling software for eventual 3D printing. I'll use </li>
 <li>Find an appropriate 3D printing service for the housing</li>
 <li>Source some cheap USB cables</li>
 <li>Figure out how feasible it is for me to assemble ~100 of these at home</li>
