@@ -36,15 +36,15 @@ If desired, it can be configured further through the local setup page at `http:/
 ## LLMs as Pedagogical Tools
 
 I had essentially zero embedded electronics experience going into this. To approach the project, I used Claude with the 
-Projects feature as a learning tool. This was very effective. The LLM helped me:
+[Projects feature](https://www.anthropic.com/news/projects) as a learning tool. This was very effective. The LLM helped me:
 
 - Determine what components and tools to buy (ESP32-S3 dev board, WS2812B LED ring, perfboards, etc)
-- Select software (Arduino IDE, KiCad)
+- Select software ([Arduino IDE](https://www.arduino.cc/en/software/), [KiCad](https://www.kicad.org/))
 - Understand pin configurations/wiring diagrams
 
 The barrier to entry was massively reduced thanks to help from an LLM. 
 
-I could of course have completed the necessary background research independently, though I likely saved days (weeks?) of time. 
+I could, of course, have completed the necessary background research independently, though I likely saved days (weeks?) of time. 
 I don't think this is a suitable approach for becoming an _expert_ in any field, though for a hobby-level understanding of a new subject, this approach works great. 
 
 This is a dead simple project. The circuit is a resistor, an LED ring, and an ESP32-S3 - that's it. However, it 
@@ -66,7 +66,7 @@ Once again, I could have done this without the aid of an LLM, but it would have 
 
 ## Component Selection
 
-The build uses two main components which I purchased from AliExpress:
+The build uses two main electronic components, which I purchased from AliExpress:
 
 - **ESP32-S3 development board** (~$6): Provides WiFi connectivity, sufficient GPIO pins, and enough processing power for HTTP requests and LED control
 - **WS2812B LED ring with 16 LEDs** (~$3): Individually addressable RGB LEDs arrayed in a ring
@@ -75,7 +75,7 @@ The build uses two main components which I purchased from AliExpress:
 
 ![Perfboard Setup](images/stock-market-orb/perfboard_with_hot_glue.JPEG "This goes into the orb housing")
 
-Total component cost under $10. The ESP32-S3 blew me away with its capabilities - a full microcontroller with WiFi and Bluetooth for roughly $5 CAD. Amazing! 
+The [ESP32-S3](https://www.espressif.com/en/products/socs/esp32-s3) blew me away with its capabilities and miniscule form factor for such an inexpensive part. It's a dual-core microcontroller with WiFi and Bluetooth for $6 CAD. Amazing!
 
 A single 220Ω resistor protects the LED data line, and the entire circuit runs off USB power through the dev board's built-in voltage regulation.
 
@@ -83,26 +83,26 @@ A single 220Ω resistor protects the LED data line, and the entire circuit runs 
 
 ## Stock Market Data APIs
 
-I was surprised at how expensive real-time financial data is. Many providers charge $20-100+ monthly for basic quote access. After evaluating several options:
+I was surprised at how expensive real-time financial data is. Many providers charge $30-$100+ monthly for basic quote access. I narrowed the products down to several options:
 
-- **Yahoo Finance**: Free but unreliable and unofficial
+- **Yahoo Finance**: Free, but unofficial and unreliable
 - **Alpha Vantage**: Decent free tier but limited requests
 - **Finnhub**: 60 API calls per minute free tier, perfect for 30-second updates
 
-Finnhub turned out to be the easiest free option for this particular project. 
+Finnhub turned out to be the easiest free option for this particular project. In the future I'll likely add calls to Yahoo Finance as a fallback to cope with usage issues or Finnhub outages. 
 
 ## Shipping to Prod
 
-I'm interested in taking a swing at producing some volume of these as a consumer product. It's dumb and memeable, so maybe some other 
+I'm interested in attempting to produce a small volume of these beautiful orbs as consumer products. It's dumb and memeable, so maybe some other 
 people will buy one (or several!). Mostly though, I'm interested in finding out what it takes to have a custom IoT device manufactured and  
 sold to paying customers at a small hobby-level scale.
 
 Next steps:
 
-- Design a PCB and figure out how much it costs to get it built
-- Design/model the Orb housing in modelling software for eventual 3D printing
+- Design a PCB and figure out how much it costs to get it built. [PCBWay](https://www.pcbway.com/) seems to be a commonly used route here. 
+- Design/model the Orb housing in modeling software for eventual 3D printing. I'll likely use [Fusion360](http://www.autodesk.com/ca-en/products/fusion-360/).
 - Find an appropriate 3D printing service for the housing
-- Source some cheap USB cables
+- Source some inexpensive USB-C cables
 - Figure out how feasible it is for me to assemble ~100 of these at home
 - Figure out what an "at scale" solution to the ticker quote problem looks like
 
