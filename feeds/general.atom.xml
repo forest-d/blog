@@ -3,11 +3,11 @@
 &lt;p&gt;&lt;img alt="Market Orb Setup" src="images/stock-market-orb/green_orb_with_laptop.JPEG" title="Behold the Orb"&gt;&lt;/p&gt;
 &lt;p&gt;I built a simple IoT device that glows green when a chosen ticker is up and red when it's down. Think of it as a mood lamp for finance bros. I've had this idea for years 
 but only recently overcame the activation energy required to pull it off (largely thanks to LLMs). &lt;/p&gt;
-&lt;h2&gt;How the orb works&lt;/h2&gt;
-&lt;p&gt;The orb is a configurable device that displays market performance through dynamic ambient lighting.&lt;/p&gt;
-&lt;p&gt;The user is able to select any ticker via a web UI, and the orb then retrieves a quote for the ticker. It then responds green for gains, red for losses, or blue for flat performance. 
+&lt;h2&gt;How the Orb works&lt;/h2&gt;
+&lt;p&gt;The Orb is a configurable device that displays market performance through dynamic ambient lighting.&lt;/p&gt;
+&lt;p&gt;The user is able to select any ticker via a web UI, and the Orb then retrieves a quote for the ticker. It then responds green for gains, red for losses, or blue for flat performance. 
 It's quite satisfying to glance across the room and immediately know how your precious ticker is doing.&lt;/p&gt;
-&lt;p&gt;The orb requires USB power and a live WiFi connection. Upon receiving power, the orb spins up a WiFi network called &lt;code&gt;Orb-Setup&lt;/code&gt;. &lt;/p&gt;
+&lt;p&gt;The Orb requires USB power and a live WiFi connection. Upon receiving power, the Orb spins up a WiFi network called &lt;code&gt;Orb-Setup&lt;/code&gt;. &lt;/p&gt;
 &lt;p&gt;&lt;img alt="Orb WiFi" src="images/stock-market-orb/orb_wifi.png" title="WiFi network selection"&gt;&lt;/p&gt;
 &lt;p&gt;The user connects to this network, then navigates to &lt;code&gt;http://orb.config&lt;/code&gt; to input their WiFi information and &lt;a href="https://finnhub.io/"&gt;Finnhub&lt;/a&gt; API key.&lt;/p&gt;
 &lt;p&gt;&lt;img alt="Web Setup" src="images/stock-market-orb/orb_setup.png" title="WiFi setup page for the Orb"&gt;&lt;/p&gt;
@@ -29,7 +29,7 @@ I don't think this is a suitable approach for becoming an &lt;em&gt;expert&lt;/e
 felt great to get it all prototyped and eventually built.&lt;/p&gt;
 &lt;p&gt;&lt;img alt="Breadboard Prototype" src="images/stock-market-orb/prototyping_breadboard.JPEG" title="Prototyping the circuit and code"&gt;&lt;/p&gt;
 &lt;h2&gt;Firmware&lt;/h2&gt;
-&lt;p&gt;The second major LLM use case was vibe coding the orb's features. Working in C++ for Arduino was new to me, but Claude excelled at the tedious parts:&lt;/p&gt;
+&lt;p&gt;The second major LLM use case was vibe coding the Orb's features. Working in C++ for Arduino was new to me, but Claude excelled at the tedious parts:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Programming different LED animation states (breathing effects, color transitions, error indicators)&lt;/li&gt;
 &lt;li&gt;Implementing the WiFi captive portal setup&lt;/li&gt;
@@ -48,6 +48,7 @@ Once again, I could have done this without the aid of an LLM, but it would have 
 &lt;p&gt;&lt;img alt="Perfboard Setup" src="images/stock-market-orb/perfboard_with_hot_glue.JPEG" title="This goes into the orb housing"&gt;&lt;/p&gt;
 &lt;p&gt;Total component cost under $10. The ESP32-S3 blew me away with its capabilities - a full microcontroller with WiFi and Bluetooth for roughly $5 CAD. Amazing! &lt;/p&gt;
 &lt;p&gt;A single 220Ω resistor protects the LED data line, and the entire circuit runs off USB power through the dev board's built-in voltage regulation.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Housing the Orb" src="images/stock-market-orb/circuit_attachment_to_orb.JPEG" title="This mess is held together by hot glue and bamboo skewer sticks"&gt;&lt;/p&gt;
 &lt;h2&gt;Stock Market Data APIs&lt;/h2&gt;
 &lt;p&gt;I was surprised at how expensive real-time financial data is. Many providers charge $20-100+ monthly for basic quote access. After evaluating several options:&lt;/p&gt;
 &lt;ul&gt;
@@ -60,26 +61,27 @@ Once again, I could have done this without the aid of an LLM, but it would have 
 &lt;p&gt;I'm interested in taking a swing at producing some volume of these as a consumer product. It's dumb and memeable, so maybe some other 
 people will buy one (or several!). Mostly though, I'm interested in finding out what it takes to have a custom IoT device manufactured and&lt;br&gt;
 sold to paying customers at a small hobby-level scale.&lt;/p&gt;
-&lt;p&gt;Next steps:
-- Design a PCB and figure out how much it costs to get it built
-- Design/model the orb housing in modelling software for eventual 3D printing
-- Find an appropriate 3D printing service for the housing
-- Source some cheap USB cables
-- Figure out how feasible it is for me to assemble ~100 of these at home
-- Figure out what an "at scale" solution to the ticker quote problem looks like&lt;/p&gt;
-&lt;p&gt;If all of the above goes well and the economics aren't insane, I'll spin up a little website with Shopify and try to 
+&lt;p&gt;Next steps:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Design a PCB and figure out how much it costs to get it built&lt;/li&gt;
+&lt;li&gt;Design/model the Orb housing in modelling software for eventual 3D printing&lt;/li&gt;
+&lt;li&gt;Find an appropriate 3D printing service for the housing&lt;/li&gt;
+&lt;li&gt;Source some cheap USB cables&lt;/li&gt;
+&lt;li&gt;Figure out how feasible it is for me to assemble ~100 of these at home&lt;/li&gt;
+&lt;li&gt;Figure out what an "at scale" solution to the ticker quote problem looks like&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;If all of the above goes well and the costs aren't insane, I'll spin up a little website with Shopify and try to 
 sell a few of these things.&lt;/p&gt;
 &lt;p&gt;&lt;img alt="Sad day" src="images/stock-market-orb/red_orb_with_laptop.JPEG" title="Sometimes it's red"&gt;&lt;/p&gt;</content><category term="General"></category></entry><entry><title>Using Zwift with a Peloton: SmartSpin2k</title><link href="https://forestdussault.com/using-zwift-with-a-peloton.html" rel="alternate"></link><published>2025-03-14T20:29:00-04:00</published><updated>2025-03-14T20:29:00-04:00</updated><author><name>Forest Dussault</name></author><id>tag:forestdussault.com,2025-03-14:/using-zwift-with-a-peloton.html</id><summary type="html">&lt;p&gt;How I use Zwift with my OG Peloton&lt;/p&gt;</summary><content type="html">&lt;p&gt;Cycling is great, though not so great during a Canadian winter. I've wanted to try out the gamified cycling world of &lt;a href="www.zwift.com"&gt;Zwift&lt;/a&gt; for some 
 time now, alas, I do not own a trainer. &lt;/p&gt;
-&lt;p&gt;I do however have an original Peloton bike... and the Peloton in theory has all the essential hardware to work with Zwift,
-so we should be able to figure something out here, right?&lt;/p&gt;
-&lt;p&gt;Thanks to the hard work of a couple of talented folks, this process is relatively straightfoward for someone who 
+&lt;p&gt;I do however have an original Peloton bike... and the Peloton in theory has all the essential hardware to work with Zwift.&lt;/p&gt;
+&lt;p&gt;Thanks to the hard work of a couple of talented people, this process is relatively straightfoward for someone who 
 likes to tinker. At a high level, what we need is the following:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;A way to install or display Zwift on our Peloton&lt;/li&gt;
 &lt;li&gt;A way to send sensor data (cadence, power) from the Peloton to Zwift&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;Turns out that the &lt;a href="https://www.smartspin2k.com/"&gt;SmartSpin2k&lt;/a&gt; solves this entirely!&lt;/p&gt;
+&lt;p&gt;Turns out that the &lt;a href="https://www.smartspin2k.com/"&gt;SmartSpin2k&lt;/a&gt; solves this entirely.&lt;/p&gt;
 &lt;h2&gt;1. Zwift + Peloton&lt;/h2&gt;
 &lt;p&gt;Our first problem: how do we install Android apps on a Peloton? &lt;/p&gt;
 &lt;p&gt;At its core, the Peloton is a big Android 
