@@ -8,59 +8,25 @@ CONFFILE := BASEDIR + "/pelicanconf.py"
 PUBLISHCONF := BASEDIR + "/publishconf.py"
 GITHUB_PAGES_BRANCH := "gh-pages"
 GITHUB_PAGES_COMMIT_MESSAGE := "Generate Pelican site"
-SERVER := "0.0.0.0"
-PORT := "8000"
 CNAME := "forestdussault.com"
 
 # Default recipe (this will run when you just type 'just')
 default:
     @just --list
 
-# Generate the website
-html:
-    {{PELICAN}} "{{INPUTDIR}}" -o "{{OUTPUTDIR}}" -s "{{CONFFILE}}" {{PELICAN_OPTS}}
+# Generate using production settings
+publish:
+    {{PELICAN}} "{{INPUTDIR}}" -o "{{OUTPUTDIR}}" -s "{{PUBLISHCONF}}" {{PELICAN_OPTS}}
 
 # Remove the generated files
 clean:
     rm -rf "{{OUTPUTDIR}}"
-
-# Regenerate the website upon modification
-regenerate:
-    {{PELICAN}} -r "{{INPUTDIR}}" -o "{{OUTPUTDIR}}" -s "{{CONFFILE}}" {{PELICAN_OPTS}}
-
-# Serve the site locally
-serve:
-    {{PELICAN}} -l "{{INPUTDIR}}" -o "{{OUTPUTDIR}}" -s "{{CONFFILE}}" {{PELICAN_OPTS}}
-
-# Serve the site globally
-serve-global:
-    {{PELICAN}} -l "{{INPUTDIR}}" -o "{{OUTPUTDIR}}" -s "{{CONFFILE}}" {{PELICAN_OPTS}} -b {{SERVER}}
-
-# Serve and regenerate together
-devserver:
-    {{PELICAN}} -lr "{{INPUTDIR}}" -o "{{OUTPUTDIR}}" -s "{{CONFFILE}}" {{PELICAN_OPTS}}
-
-# Regenerate and serve on 0.0.0.0
-devserver-global:
-    {{PELICAN}} -lr "{{INPUTDIR}}" -o "{{OUTPUTDIR}}" -s "{{CONFFILE}}" {{PELICAN_OPTS}} -b 0.0.0.0
-
-# Generate using production settings
-publish:
-    {{PELICAN}} "{{INPUTDIR}}" -o "{{OUTPUTDIR}}" -s "{{PUBLISHCONF}}" {{PELICAN_OPTS}}
 
 # Upload the website via gh-pages
 github: publish
     git pull
     ghp-import -m "{{GITHUB_PAGES_COMMIT_MESSAGE}}" -b {{GITHUB_PAGES_BRANCH}} "{{OUTPUTDIR}}" --no-jekyll --cname="{{CNAME}}"
     git push origin {{GITHUB_PAGES_BRANCH}}
-
-# Enable debugging mode
-debug mode="1":
-    @just PELICAN_OPTS="{{PELICAN_OPTS}} -D" html
-
-# Enable relative URLs
-relative mode="1":
-    @just PELICAN_OPTS="{{PELICAN_OPTS}} --relative-urls" html
 
 # Create a new blog post with a template
 new-post title category="General":
