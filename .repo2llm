@@ -1,0 +1,14 @@
+# Development directories
+.github/
+.vscode/
+node_modules/
+__pycache__/
+
+# Build artifacts
+dist/
+build/
+*.pyc
+
+# Custom patterns
+output/
+.venv/
