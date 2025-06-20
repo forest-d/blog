@@ -28,8 +28,8 @@ The user connects to this network, then navigates to `http://orb.config` to inpu
 
 ![Web Setup](images/stock-market-orb/orb_setup.png "WiFi setup page for the Orb")
 
-Once the setup is done, the user switches back to their home network and is able to enjoy the joys of the orb. 
-If desired, it can be managed further through the local setup page at `http://orb.local`.
+Once the setup is done, the user switches back to their home network and is able to enjoy their orb. 
+If desired, it can be configured further through the local setup page at `http://orb.local`.
 
 ![Web Config](images/stock-market-orb/orb_local.png "Configuration page for the Orb")
 
