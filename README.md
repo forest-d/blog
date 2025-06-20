@@ -1,6 +1,6 @@
 # Forest's Blog
 
-This repository contains my personal blog powered by Pelican and hosted on GitHub Pages.
+This repository contains my personal blog powered by Pelican and hosted on GitHub Pages. It's accessible at [forestdussault.com](https://www.forestdussault.com).
 
 ## Managing Blog Posts
 
