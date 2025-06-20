@@ -13,14 +13,14 @@ Summary: I built a glowing orb that monitors the stock market
 I built a simple IoT device that glows green when a chosen ticker is up and red when it's down. Think of it as a mood lamp for finance bros. I've had this idea for years 
 but only recently overcame the activation energy required to pull it off (largely thanks to LLMs). 
 
-## How the orb works
+## How the Orb works
 
-The orb is a configurable device that displays market performance through dynamic ambient lighting.
+The Orb is a configurable device that displays market performance through dynamic ambient lighting.
 
-The user is able to select any ticker via a web UI, and the orb then retrieves a quote for the ticker. It then responds green for gains, red for losses, or blue for flat performance. 
+The user is able to select any ticker via a web UI, and the Orb then retrieves a quote for the ticker. It then responds green for gains, red for losses, or blue for flat performance. 
 It's quite satisfying to glance across the room and immediately know how your precious ticker is doing.
 
-The orb requires USB power and a live WiFi connection. Upon receiving power, the orb spins up a WiFi network called `Orb-Setup`. 
+The Orb requires USB power and a live WiFi connection. Upon receiving power, the Orb spins up a WiFi network called `Orb-Setup`. 
 
 ![Orb WiFi](images/stock-market-orb/orb_wifi.png "WiFi network selection")
 
@@ -54,7 +54,7 @@ felt great to get it all prototyped and eventually built.
 
 ## Firmware
 
-The second major LLM use case was vibe coding the orb's features. Working in C++ for Arduino was new to me, but Claude excelled at the tedious parts:
+The second major LLM use case was vibe coding the Orb's features. Working in C++ for Arduino was new to me, but Claude excelled at the tedious parts:
 
 - Programming different LED animation states (breathing effects, color transitions, error indicators)
 - Implementing the WiFi captive portal setup
@@ -79,6 +79,8 @@ Total component cost under $10. The ESP32-S3 blew me away with its capabilities 
 
 A single 220Ω resistor protects the LED data line, and the entire circuit runs off USB power through the dev board's built-in voltage regulation.
 
+![Housing the Orb](images/stock-market-orb/circuit_attachment_to_orb.JPEG "This mess is held together by hot glue and bamboo skewer sticks")
+
 ## Stock Market Data APIs
 
 I was surprised at how expensive real-time financial data is. Many providers charge $20-100+ monthly for basic quote access. After evaluating several options:
@@ -96,14 +98,15 @@ people will buy one (or several!). Mostly though, I'm interested in finding out 
 sold to paying customers at a small hobby-level scale.
 
 Next steps:
+
 - Design a PCB and figure out how much it costs to get it built
-- Design/model the orb housing in modelling software for eventual 3D printing
+- Design/model the Orb housing in modelling software for eventual 3D printing
 - Find an appropriate 3D printing service for the housing
 - Source some cheap USB cables
 - Figure out how feasible it is for me to assemble ~100 of these at home
 - Figure out what an "at scale" solution to the ticker quote problem looks like
 
-If all of the above goes well and the economics aren't insane, I'll spin up a little website with Shopify and try to 
+If all of the above goes well and the costs aren't insane, I'll spin up a little website with Shopify and try to 
 sell a few of these things.
 
 ![Sad day](images/stock-market-orb/red_orb_with_laptop.JPEG "Sometimes it's red")
