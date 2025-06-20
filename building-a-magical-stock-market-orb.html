@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <title>    Building a magical stock market orb
+</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href='https://fonts.googleapis.com/css?family=Gentium+Book+Basic|Merriweather:400,300' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        <link rel="stylesheet" href="https://forestdussault.com/theme/css/cid.css">
+        <link rel="stylesheet" href="https://forestdussault.com/theme/css/custom.css">
+        <link href="https://forestdussault.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Forest's Blog Atom Feed" />
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+            <div class="container">
+
+<header class="blog-header">
+    <h1><a href="https://forestdussault.com">Forest's Blog</a></h1>
+    <p></p>
+    <nav>
+        <a href="https://forestdussault.com/">INDEX</a>
+        <a href="https://forestdussault.com/archives">ARCHIVES</a>
+        <a href="https://forestdussault.com/categories">CATEGORIES</a>
+    </nav>
+</header>
+
+    <div class="post">
+
+        <header>
+            <h1>Building a magical stock market orb</h1>
+            <p class="date">Written on <time datetime="2025-06-20T10:25:00-04:00">Jun 20, 2025</time></p>
+        </header>
+
+        <article>
+            <h1>Building a Magical Stock Market Orb</h1>
+<p><img alt="Market Orb Setup" src="images/stock-market-orb/green_orb_with_laptop.JPEG" title="Behold the Orb"></p>
+<p>I built a simple IoT device that glows green when a chosen ticker is up and red when it's down. Think of it as a mood lamp for finance bros. I've had this idea for years 
+but only recently overcame the activation energy required to pull it off (largely thanks to LLMs). </p>
+<h2>How the orb works</h2>
+<p>The orb is a configurable device that displays market performance through dynamic ambient lighting.</p>
+<p>The user is able to select any ticker via a web UI, and the orb then retrieves a quote for the ticker. It then responds green for gains, red for losses, or blue for flat performance. 
+It's quite satisfying to glance across the room and immediately know how your precious ticker is doing.</p>
+<p>The orb requires USB power and a live WiFi connection. Upon receiving power, the orb spins up a WiFi network called <code>Orb-Setup</code>. </p>
+<p><img alt="Orb WiFi" src="images/stock-market-orb/orb_wifi.png" title="WiFi network selection"></p>
+<p>The user connects to this network, then navigates to <code>http://orb.config</code> to input their WiFi information and <a href="https://finnhub.io/">Finnhub</a> API key.</p>
+<p><img alt="Web Setup" src="images/stock-market-orb/orb_setup.png" title="WiFi setup page for the Orb"></p>
+<p>Once the setup is done, the user switches back to their home network and is able to enjoy the joys of the orb. 
+If desired, it can be managed further through the local setup page at <code>http://orb.local</code>.</p>
+<p><img alt="Web Config" src="images/stock-market-orb/orb_local.png" title="Configuration page for the Orb"></p>
+<h2>LLMs as Pedagogical Tools</h2>
+<p>I had essentially zero embedded electronics experience going into this. To approach the project, I used Claude with the 
+Projects feature as a learning tool. This was very effective. The LLM helped me:</p>
+<ul>
+<li>Determine what components and tools to buy (ESP32-S3 dev board, WS2812B LED ring, perfboards, etc)</li>
+<li>Select software (Arduino IDE, KiCad)</li>
+<li>Understand pin configurations/wiring diagrams</li>
+</ul>
+<p>The barrier to entry was massively reduced thanks to help from an LLM. </p>
+<p>I could of course have completed the necessary background research independently, though I likely saved days (weeks?) of time. 
+I don't think this is a suitable approach for becoming an <em>expert</em> in any field, though for a hobby-level understanding of a new subject, this approach works great. </p>
+<p>This is a dead simple project. The circuit is a resistor, an LED ring, and an ESP32-S3 - that's it. However, it 
+felt great to get it all prototyped and eventually built.</p>
+<p><img alt="Breadboard Prototype" src="images/stock-market-orb/prototyping_breadboard.JPEG" title="Prototyping the circuit and code"></p>
+<h2>Firmware</h2>
+<p>The second major LLM use case was vibe coding the orb's features. Working in C++ for Arduino was new to me, but Claude excelled at the tedious parts:</p>
+<ul>
+<li>Programming different LED animation states (breathing effects, color transitions, error indicators)</li>
+<li>Implementing the WiFi captive portal setup</li>
+<li>Creating the HTML web interface for changing ticker symbols</li>
+<li>Handling error states and watchdog timers</li>
+</ul>
+<p>The resulting code handles WiFi configuration through a captive portal, fetches stock data every 30 seconds, and smoothly animates between market states. 
+Once again, I could have done this without the aid of an LLM, but it would have taken me considerably longer to achieve the same result. </p>
+<h2>Component Selection</h2>
+<p>The build uses two main components which I purchased from AliExpress:</p>
+<ul>
+<li><strong>ESP32-S3 development board</strong> (~$6): Provides WiFi connectivity, sufficient GPIO pins, and enough processing power for HTTP requests and LED control</li>
+<li><strong>WS2812B LED ring with 16 LEDs</strong> (~$3): Individually addressable RGB LEDs arrayed in a ring</li>
+</ul>
+<p><img alt="ESP32-S3" src="images/stock-market-orb/esp32s3_on_perfboard.JPEG" title="The ESP32-S3 is amazing"></p>
+<p><img alt="Perfboard Setup" src="images/stock-market-orb/perfboard_with_hot_glue.JPEG" title="This goes into the orb housing"></p>
+<p>Total component cost under $10. The ESP32-S3 blew me away with its capabilities - a full microcontroller with WiFi and Bluetooth for roughly $5 CAD. Amazing! </p>
+<p>A single 220Ω resistor protects the LED data line, and the entire circuit runs off USB power through the dev board's built-in voltage regulation.</p>
+<h2>Stock Market Data APIs</h2>
+<p>I was surprised at how expensive real-time financial data is. Many providers charge $20-100+ monthly for basic quote access. After evaluating several options:</p>
+<ul>
+<li><strong>Yahoo Finance</strong>: Free but unreliable and unofficial</li>
+<li><strong>Alpha Vantage</strong>: Decent free tier but limited requests</li>
+<li><strong>Finnhub</strong>: 60 API calls per minute free tier, perfect for 30-second updates</li>
+</ul>
+<p>Finnhub turned out to be the easiest free option for this particular project. </p>
+<h2>Shipping to Prod</h2>
+<p>I'm interested in taking a swing at producing some volume of these as a consumer product. It's dumb and memeable, so maybe some other 
+people will buy one (or several!). Mostly though, I'm interested in finding out what it takes to have a custom IoT device manufactured and<br>
+sold to paying customers at a small hobby-level scale.</p>
+<p>Next steps:
+- Design a PCB and figure out how much it costs to get it built
+- Design/model the orb housing in modelling software for eventual 3D printing
+- Find an appropriate 3D printing service for the housing
+- Source some cheap USB cables
+- Figure out how feasible it is for me to assemble ~100 of these at home
+- Figure out what an "at scale" solution to the ticker quote problem looks like</p>
+<p>If all of the above goes well and the economics aren't insane, I'll spin up a little website with Shopify and try to 
+sell a few of these things.</p>
+<p><img alt="Sad day" src="images/stock-market-orb/red_orb_with_laptop.JPEG" title="Sometimes it's red"></p>
+        </article>
+
+        <footer>
+            <p>This entry is posted in <a href="https://forestdussault.com/category/general.html">General</a>.</p>
+        </footer>
+
+
+    </div>
+
+
+<footer class="blog-footer">
+    <ul class="nav">
+                <li><a href="https://linkedin.com/in/forest-dussault"><i class="fab fa-linkedin"></i></a></li>
+                <li><a href="https://github.com/forest-d"><i class="fab fa-github"></i></a></li>
+                <li><a href="https://orcid.org/0000-0002-6883-1308"><i class="fab fa-orcid"></i></a></li>
+            <li><a href="mailto:forestdussault@gmail.com" rel="nofollow"><i class="fas fa-envelope"></i></a></li>
+    </ul>
+
+    <p class="disclaimer">
+    </p>
+</footer>
+            </div>
+    <script src="https://forestdussault.com/theme/js/image-captions.js"></script>
+    </body>
+</html>
