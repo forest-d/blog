@@ -9,16 +9,15 @@ Summary: How I use Zwift with my OG Peloton
 Cycling is great, though not so great during a Canadian winter. I've wanted to try out the gamified cycling world of [Zwift](www.zwift.com) for some 
 time now, alas, I do not own a trainer. 
 
-I do however have an original Peloton bike... and the Peloton in theory has all the essential hardware to work with Zwift,
-so we should be able to figure something out here, right?
+I do however have an original Peloton bike... and the Peloton in theory has all the essential hardware to work with Zwift.
 
-Thanks to the hard work of a couple of talented folks, this process is relatively straightfoward for someone who 
+Thanks to the hard work of a couple of talented people, this process is relatively straightfoward for someone who 
 likes to tinker. At a high level, what we need is the following:
 
 1. A way to install or display Zwift on our Peloton
 2. A way to send sensor data (cadence, power) from the Peloton to Zwift
 
-Turns out that the [SmartSpin2k](https://www.smartspin2k.com/) solves this entirely!
+Turns out that the [SmartSpin2k](https://www.smartspin2k.com/) solves this entirely.
 
 ## 1. Zwift + Peloton
 
