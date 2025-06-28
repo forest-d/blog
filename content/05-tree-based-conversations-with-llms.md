@@ -18,7 +18,7 @@ I booted up Claude Code and went through a several-hour struggle session to get 
 
 ## DendriteLLM
 
-`DendriteLLM` is a simple React application that allows for tree-based conversations with LLMs (actually just Claude for now).
+[DendriteLLM](https://github.com/forest-d/DendriteLLM) is a simple React application that allows for tree-based conversations with LLMs (actually just Claude for now).
 
 The core idea is simple: instead of a linear chat, users interact with a tree-like structure where they can branch off at any point in their conversation history. The UI provides two main views - a chat interface and an interactive tree diagram showing the conversation's structure. The tree view is built with [React Flow](https://reactflow.dev/).
 
