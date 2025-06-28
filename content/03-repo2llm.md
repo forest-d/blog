@@ -6,7 +6,11 @@ Slug: repo2llm
 Author: Forest Dussault
 Summary: Brief overview of my tool repo2llm
 
-## `repo2llm`
+```text
+UPDATE 2025-06-28
+
+This is already hilariously out of date after only a few months. I've since moved on to using Claude Code and JetBrains' Cursor ripoff.
+```
 
 A few months back I hacked together [repo2llm](https://github.com/forest-d/repo2llm), a `pip` package that allows 
 users to copy directory contents to their clipboard. It's built specifically for passing along context from coding 

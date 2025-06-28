@@ -6,8 +6,6 @@ Slug: building-a-magical-stock-market-orb
 Author: Forest Dussault
 Summary: I built a glowing orb that monitors the stock market
 
-# Building a Magical Stock Market Orb
-
 ![Market Orb Setup](images/stock-market-orb/green_orb_with_laptop.JPEG "Behold the Orb")
 
 I built a simple IoT device that glows green when a chosen ticker is up and red when it's down. Think of it as a mood lamp for finance bros. I've had this idea for years 
