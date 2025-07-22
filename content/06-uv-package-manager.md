@@ -4,13 +4,13 @@ Category: General
 Tags: python, uv
 Slug: uv-package-manager
 Author: Forest Dussault
-Summary: uv has solved our Python dependency management woes
+Summary: Solving our Python dependency management woes
 
 I've been using Python for over a decade, cycling through [`virtualenv`](https://virtualenv.pypa.io/), [`pip-tools`](https://pip-tools.rtfd.io/), [`poetry`](https://python-poetry.org/), [`conda`](https://conda.io/) (then [`mamba`](https://mamba.readthedocs.io/)), and probably some others I'm forgetting. Each promised to solve Python's packaging complexity, but these were all tools I had to fight against (I'm looking at you `conda`).
 
 Thankfully, we now have [`uv`](https://docs.astral.sh/uv/). We've adopted it at my workplace, transitioning our major repos from `poetry`. The process was seamless, and our CI build systems are now substantially faster. I've also been adopting it for all of my personal projects.
 
-**Migration caveat**: When transitioning from `poetry` to `uv`, be aware that the dependency solvers use different resolution logic. Even with identical pinned package versions in your `pyproject.toml`, the resulting lockfiles will contain different transitive dependencies. This can introduce subtle bugs or behavioral changes, so thorough testing is essential during migration.
+**Migration caveat**: When transitioning from `poetry` to `uv`, be aware that the dependency solvers use different resolution logic. Even with identical pinned package versions in your `pyproject.toml`, the resulting lockfiles will contain different transitive dependencies. This can introduce subtle bugs or behavioral changes, so testing is essential during migration.
 
 ## Mass adoption
 
