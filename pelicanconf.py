@@ -31,3 +31,13 @@ DEFAULT_PAGINATION = False
 THEME = "themes/cid"
 
 STATIC_PATHS = ["images"]
+
+# Markdown extensions for syntax highlighting
+MARKDOWN = {
+    'extension_configs': {
+        'markdown.extensions.codehilite': {'css_class': 'highlight'},
+        'markdown.extensions.extra': {},
+        'markdown.extensions.meta': {},
+    },
+    'output_format': 'html5',
+}
