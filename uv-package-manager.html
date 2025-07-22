@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <title>    uv
+</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href='https://fonts.googleapis.com/css?family=Gentium+Book+Basic|Merriweather:400,300' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        <link rel="stylesheet" href="https://forestdussault.com/theme/css/cid.css">
+        <link rel="stylesheet" href="https://forestdussault.com/theme/css/custom.css">
+        <link href="https://forestdussault.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Forest's Blog Atom Feed" />
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+            <div class="container">
+
+<header class="blog-header">
+    <h1><a href="https://forestdussault.com">Forest's Blog</a></h1>
+    <p></p>
+    <nav>
+        <a href="https://forestdussault.com/">INDEX</a>
+        <a href="https://forestdussault.com/archives">ARCHIVES</a>
+        <a href="https://forestdussault.com/categories">CATEGORIES</a>
+    </nav>
+</header>
+
+    <div class="post">
+
+        <header>
+            <h1>uv</h1>
+            <p class="date">Written on <time datetime="2025-07-22T17:27:00-04:00">Jul 22, 2025</time></p>
+        </header>
+
+        <article>
+            <p>I've been using Python for over a decade, cycling through <a href="https://virtualenv.pypa.io/"><code>virtualenv</code></a>, <a href="https://pip-tools.rtfd.io/"><code>pip-tools</code></a>, <a href="https://python-poetry.org/"><code>poetry</code></a>, <a href="https://conda.io/"><code>conda</code></a> (then <a href="https://mamba.readthedocs.io/"><code>mamba</code></a>), and probably some others I'm forgetting. Each promised to solve Python's packaging complexity, but these were all tools I had to fight against (I'm looking at you <code>conda</code>).</p>
+<p>Thankfully, we now have <a href="https://docs.astral.sh/uv/"><code>uv</code></a>. We've adopted it at my workplace, transitioning our major repos from <code>poetry</code>. The process was seamless, and our CI build systems are now substantially faster. I've also been adopting it for all of my personal projects.</p>
+<p><strong>Migration caveat</strong>: When transitioning from <code>poetry</code> to <code>uv</code>, be aware that the dependency solvers use different resolution logic. Even with identical pinned package versions in your <code>pyproject.toml</code>, the resulting lockfiles will contain different transitive dependencies. This can introduce subtle bugs or behavioral changes, so thorough testing is essential during migration.</p>
+<h2>Mass adoption</h2>
+<p>The large scale adoption of <code>uv</code> by Python devs is not surprising, it is simply better than the alternatives. Virtual env creation package installations feel nearly instantaneous. This isn't incremental improvement — it's a total shift in how Python development feels.</p>
+<p>When creating a virtual environment drops from 30 seconds to under a second, you start using them differently.</p>
+<p>The <code>uv run</code> command is wonderfully wasteful. Spin up a disposable Python interpreter, then throw it away when you're done. <code>uv run --with requests script.py</code> creates an isolated environment, installs the package, runs your code, and discards everything—all faster than manually activating and installation dependencies in a traditional venv.</p>
+<h2>Examples</h2>
+<p>Starting a new project with <code>uv</code> is easy. If you'd like to follow along, get <code>uv</code> on your system with <code>curl -LsSf https://astral.sh/uv/install.sh | sh</code>.</p>
+<p>First, the disposable environment pattern changes how you approach one-off tasks:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># pull up the aws s3 cp commands help menu</span>
+uv<span class="w"> </span>run<span class="w"> </span>--with<span class="w"> </span>awscli<span class="w"> </span>aws<span class="w"> </span>s3<span class="w"> </span>cp<span class="w"> </span><span class="nb">help</span>
+</code></pre></div>
+
+<p>Creating new projects around uv is easy and the de facto way I'll be setting up my projects in the future.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Initialize a new project</span>
+uv<span class="w"> </span>init<span class="w"> </span>my-project
+<span class="nb">cd</span><span class="w"> </span>my-project
+
+<span class="c1"># Add (grouped) dependencies directly to pyproject.toml</span>
+uv<span class="w"> </span>add<span class="w"> </span>requests<span class="w"> </span>polars
+uv<span class="w"> </span>add<span class="w"> </span>--dev<span class="w"> </span>pytest<span class="w"> </span>black
+
+<span class="c1"># Run your code with all dependencies available</span>
+uv<span class="w"> </span>run<span class="w"> </span>main.py
+</code></pre></div>
+
+<p>The generated <code>pyproject.toml</code> is clean and standard:</p>
+<div class="highlight"><pre><span></span><code><span class="k">[project]</span>
+<span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;my-project&quot;</span>
+<span class="n">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;0.1.0&quot;</span>
+<span class="n">requires-python</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&gt;=3.12&quot;</span>
+<span class="n">dependencies</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;polars&gt;=1.31.0&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;requests&gt;=2.32.4&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="k">[build-system]</span>
+<span class="n">requires</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;hatchling&quot;</span><span class="p">]</span>
+<span class="n">build-backend</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;hatchling.build&quot;</span>
+</code></pre></div>
+
+<p>For existing projects, <code>uv</code> provides a drop-in replacement for <code>pip</code>. This is useful for migrating legacy projects:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Normal pip workflow</span>
+pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+
+<span class="c1"># uv equivalent (10-100x faster)</span>
+uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+</code></pre></div>
+        </article>
+
+        <footer>
+            <p>This entry is posted in <a href="https://forestdussault.com/category/general.html">General</a>.</p>
+        </footer>
+
+
+    </div>
+
+
+<footer class="blog-footer">
+    <ul class="nav">
+                <li><a href="https://linkedin.com/in/forest-dussault"><i class="fab fa-linkedin"></i></a></li>
+                <li><a href="https://github.com/forest-d"><i class="fab fa-github"></i></a></li>
+                <li><a href="https://orcid.org/0000-0002-6883-1308"><i class="fab fa-orcid"></i></a></li>
+            <li><a href="mailto:forestdussault@gmail.com" rel="nofollow"><i class="fas fa-envelope"></i></a></li>
+    </ul>
+
+    <p class="disclaimer">
+    </p>
+</footer>
+            </div>
+    <script src="https://forestdussault.com/theme/js/image-captions.js"></script>
+    </body>
+</html>
