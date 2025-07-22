@@ -65,3 +65,46 @@
     background-color: #f0f0f0;
     text-decoration: underline;
 }
+
+/* Enhanced code block styling */
+.highlight {
+    background-color: #f8f8f8 !important;
+    border: 1px solid #e1e1e8;
+    border-radius: 6px;
+    margin: 1.5em 0;
+    padding: 1em;
+    overflow-x: auto;
+    font-size: 0.9em;
+    line-height: 1.4;
+}
+
+.highlight pre {
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    border: none;
+}
+
+/* Inline code styling */
+.post code:not(.highlight code) {
+    background-color: #f1f3f4;
+    color: #d73a49;
+    padding: 0.2em 0.4em;
+    border-radius: 3px;
+    font-size: 0.9em;
+    border: 1px solid #e1e4e8;
+}
+
+/* Language labels for code blocks */
+.highlight::before {
+    content: attr(data-language);
+    display: block;
+    background: #e8e8e8;
+    color: #666;
+    font-size: 0.8em;
+    font-weight: bold;
+    margin: -1em -1em 1em -1em;
+    padding: 0.5em 1em;
+    border-radius: 6px 6px 0 0;
+    border-bottom: 1px solid #ddd;
+}

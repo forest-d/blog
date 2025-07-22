@@ -42,7 +42,7 @@
         <article>
             <p>I've been using Python for over a decade, cycling through <a href="https://virtualenv.pypa.io/"><code>virtualenv</code></a>, <a href="https://pip-tools.rtfd.io/"><code>pip-tools</code></a>, <a href="https://python-poetry.org/"><code>poetry</code></a>, <a href="https://conda.io/"><code>conda</code></a> (then <a href="https://mamba.readthedocs.io/"><code>mamba</code></a>), and probably some others I'm forgetting. Each promised to solve Python's packaging complexity, but these were all tools I had to fight against (I'm looking at you <code>conda</code>).</p>
 <p>Thankfully, we now have <a href="https://docs.astral.sh/uv/"><code>uv</code></a>. We've adopted it at my workplace, transitioning our major repos from <code>poetry</code>. The process was seamless, and our CI build systems are now substantially faster. I've also been adopting it for all of my personal projects.</p>
-<p><strong>Migration caveat</strong>: When transitioning from <code>poetry</code> to <code>uv</code>, be aware that the dependency solvers use different resolution logic. Even with identical pinned package versions in your <code>pyproject.toml</code>, the resulting lockfiles will contain different transitive dependencies. This can introduce subtle bugs or behavioral changes, so thorough testing is essential during migration.</p>
+<p><strong>Migration caveat</strong>: When transitioning from <code>poetry</code> to <code>uv</code>, be aware that the dependency solvers use different resolution logic. Even with identical pinned package versions in your <code>pyproject.toml</code>, the resulting lockfiles will contain different transitive dependencies. This can introduce subtle bugs or behavioral changes, so testing is essential during migration.</p>
 <h2>Mass adoption</h2>
 <p>The large scale adoption of <code>uv</code> by Python devs is not surprising, it is simply better than the alternatives. Virtual env creation package installations feel nearly instantaneous. This isn't incremental improvement — it's a total shift in how Python development feels.</p>
 <p>When creating a virtual environment drops from 30 seconds to under a second, you start using them differently.</p>
@@ -89,6 +89,8 @@ pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </s
 <span class="c1"># uv equivalent (10-100x faster)</span>
 uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
 </code></pre></div>
+
+<p>Now we just need to wait and see how astral decides to monetize their business — hopefully sanely.</p>
         </article>
 
         <footer>
