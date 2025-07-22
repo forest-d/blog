@@ -166,3 +166,4 @@ output/
 
 # Config file
 .repo2llm
+/CLAUDE.md
