@@ -73,3 +73,4 @@ pip install -r requirements.txt
 uv pip install -r requirements.txt
 ```
 
+Now we just need to wait and see how astral decides to monetize their business — hopefully sanely.
