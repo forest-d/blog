@@ -14,11 +14,9 @@ Thankfully, we now have [`uv`](https://docs.astral.sh/uv/). We've adopted it at 
 
 ## Mass adoption
 
-The large scale adoption of `uv` by Python devs is not surprising, it is simply better than the alternatives. Virtual env creation package installations feel nearly instantaneous. This isn't incremental improvement — it's a total shift in how Python development feels.
+The large scale adoption of `uv` by Python devs is not surprising, it is simply better than the alternatives. Virtual env creation and package installations feel nearly instant. This is a massive boost over what we were dealing with previously.
 
-When creating a virtual environment drops from 30 seconds to under a second, you start using them differently.
-
-The `uv run` command is wonderfully wasteful. Spin up a disposable Python interpreter, then throw it away when you're done. `uv run --with requests script.py` creates an isolated environment, installs the package, runs your code, and discards everything—all faster than manually activating and installation dependencies in a traditional venv.
+One of my favourite examples is the wonderfilly wasteful `uv run` command - we can spin up a disposable Python interpreter, then throw it away in just a few seconds. `uv run --with requests script.py` creates an isolated environment, installs the package, runs your code, and discards everything—all faster than manually activating and installation dependencies in a traditional venv.
 
 ## Examples
 
