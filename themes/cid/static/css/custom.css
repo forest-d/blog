@@ -108,3 +108,82 @@
     border-radius: 6px 6px 0 0;
     border-bottom: 1px solid #ddd;
 }
+
+/* DNA Helix Container */
+.dna-container {
+    position: fixed;
+    left: 20px;
+    top: 0;
+    height: 100vh;
+    width: 80px;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.dna-helix {
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: visible;
+}
+
+/* DNA Animation - moves by one pattern length (2102 * 10px = 21020px) */
+@keyframes dna-scroll {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-21020px); }
+}
+
+.dna-helix .dna-backbone {
+    stroke: #8B4513;
+    stroke-width: 2;
+    fill: none;
+}
+
+.dna-helix .base-pair {
+    stroke-width: 1.5;
+    pointer-events: none;
+}
+
+.dna-animated {
+    animation: dna-scroll 300s linear infinite;
+}
+
+/* Adjust post layout to accommodate DNA helix */
+body {
+    padding-left: 120px;
+}
+
+.container {
+    max-width: 56em;
+    margin: 1em auto;
+}
+
+/* FASTA Header Display */
+.fasta-header {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 10px 20px;
+    font-family: monospace;
+    font-size: 12px;
+    z-index: 1000;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+@media screen and (max-width: 640px) {
+    .dna-container {
+        display: none;
+    }
+    body {
+        padding-left: 0;
+    }
+    .fasta-header {
+        font-size: 10px;
+        padding: 8px 15px;
+    }
+}
