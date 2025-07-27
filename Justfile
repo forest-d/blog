@@ -14,9 +14,17 @@ CNAME := "forestdussault.com"
 default:
     @just --list
 
+# Generate site for local development
+build:
+    {{PELICAN}} "{{INPUTDIR}}" -o "{{OUTPUTDIR}}" -s "{{CONFFILE}}" {{PELICAN_OPTS}}
+
 # Generate using production settings
 publish:
     {{PELICAN}} "{{INPUTDIR}}" -o "{{OUTPUTDIR}}" -s "{{PUBLISHCONF}}" {{PELICAN_OPTS}}
+
+# Serve the site locally for development
+serve: build
+    cd "{{OUTPUTDIR}}" && python -m http.server 8000
 
 # Remove the generated files
 clean:
