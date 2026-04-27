@@ -4,7 +4,7 @@ Category: General
 Tags: 
 Slug: 07-memorizing-arbitrary-sequences-of-integers
 Author: Forest Dussault
-Summary: Memorizing arbitary sequences of integers with music
+Summary: Memorizing arbitrary sequences of integers with music
 
 I play guitar, and I mostly use guitar tablature to learn or write music. 
 I've long been mildly amused by the fact that by committing a tablature to memory, I've inadvertently memorized a long string of integers.
@@ -48,4 +48,16 @@ considered "avant-garde" at best. This is because we're at the mercy of the ever
 0-9 to 1 of 6 strings does not lend itself to pleasant intervals or coherent music. 
 Sure, some interesting phrases will occur (in fact, entire coherent songs will emerge), 
 but making listenable music will be difficult.
+
+Here's what the first 50 notes of the (awful) Pi tune sound like.
+
+<div class="audio-player">
+  <button class="audio-player-btn" title="Play"><i class="fas fa-play"></i></button>
+  <span class="audio-player-label">pi as guitar tablature</span>
+  <div class="audio-player-progress"><div class="audio-player-progress-fill"></div></div>
+  <span class="audio-player-time">0:00 / 0:00</span>
+  <audio src="{static}/audio/pi.mp3"></audio>
+</div>
+
+Like I said, _avant-garde_.
 
