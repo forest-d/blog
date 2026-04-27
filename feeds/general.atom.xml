@@ -13,25 +13,26 @@ E|-------------------------------------------------------|
 you've committed a sequence of ~27 integers to memory.  If you learn the whole song, you'll have hundreds of digits 
 committed.&lt;/p&gt;
 &lt;h2&gt;Putting it to the test&lt;/h2&gt;
-&lt;p&gt;Okay, now that you've learned you have this superpower, how do you put it to use? Learning a much less musical way of 
-reciting the notes of a song is not very useful, nor impressive to audiences. 
+&lt;p&gt;Okay, now that you've learned you have this superpower, how do you put it to use? Learning a nonmusical way of 
+reciting the notes to a song is not particularly useful, nor impressive to audiences. 
 Instead, the obvious answer is to start memorizing pi - a slightly less useless skill. &lt;/p&gt;
-&lt;p&gt;Now, the main flaw of this technique reveals itself. It's easy to memorize &lt;em&gt;songs&lt;/em&gt;, 
+&lt;p&gt;Now, the main flaw of this technique becomes apparent. It's easy to memorize &lt;em&gt;songs&lt;/em&gt;, 
 there is a layer of musical information that you embed in your brain, and the tablature is incidental information. 
 The rhythm, melody, chord movements, the muscle memory from practice, and so on - these all contribute to forming this memory.&lt;/p&gt;
 &lt;p&gt;So, we first need to encode pi into guitar tablature, preferably in a musical way. Then we'll learn this song.&lt;/p&gt;
 &lt;p&gt;I did this, and came up with a very, um, avant-garde tune. But it worked and I was able to learn the first 50 digits of 
 pi in about 30 minutes. I know this is not particularly impressive in the realm of memorizing pi, 
-but the speed and ease at which I was able to do so felt good. &lt;/p&gt;
+but the speed and ease at which I was able to do so felt good.&lt;/p&gt;
 &lt;p&gt;I think I could push this to at least 100 digits, though the lack of structure to the music makes it increasingly difficult. 
 Little disparate musical phrases start to emerge which serve as anchors, though at some point, it'll become too incoherent to sustain in a simple way.&lt;/p&gt;
 &lt;h2&gt;Making it musical&lt;/h2&gt;
 &lt;p&gt;Making pi musical in standard tuning is difficult. Like I referenced earlier, the tune I came up with could be 
 considered "avant-garde" at best. This is because we're at the mercy of the ever evolving pi, and mapping random digits 
 0-9 to 1 of 6 strings does not lend itself to pleasant intervals or coherent music. 
-Sure, some interesting phrases will occur (in fact, entire coherent songs will emerge), 
+Sure, some interesting phrases will occur (in fact, entire coherent songs will emerge in the fullness of infinity), 
 but making listenable music will be difficult.&lt;/p&gt;
-&lt;p&gt;Here's what the first 50 notes of the (awful) Pi tune sound like.&lt;/p&gt;
+&lt;p&gt;Here's what the first 50 notes of the (awful) Pi tune sound like. There were some artistic choices made for rhythm and 
+string choice, but it's ultimately pi mapped to guitar tablature.&lt;/p&gt;
 &lt;div class="audio-player"&gt;
   &lt;button class="audio-player-btn" title="Play"&gt;&lt;i class="fas fa-play"&gt;&lt;/i&gt;&lt;/button&gt;
   &lt;span class="audio-player-label"&gt;pi as guitar tablature&lt;/span&gt;
@@ -40,7 +41,50 @@ but making listenable music will be difficult.&lt;/p&gt;
   &lt;audio src="https://forestdussault.com/audio/pi.mp3"&gt;&lt;/audio&gt;
 &lt;/div&gt;
 
-&lt;p&gt;Like I said, &lt;em&gt;avant-garde&lt;/em&gt;.&lt;/p&gt;</content><category term="General"></category></entry><entry><title>uv</title><link href="https://forestdussault.com/uv-package-manager.html" rel="alternate"></link><published>2025-07-22T17:27:00-04:00</published><updated>2025-07-22T17:27:00-04:00</updated><author><name>Forest Dussault</name></author><id>tag:forestdussault.com,2025-07-22:/uv-package-manager.html</id><summary type="html">&lt;p&gt;Solving our Python dependency management woes&lt;/p&gt;</summary><content type="html">&lt;p&gt;I've been using Python for over a decade, cycling through &lt;a href="https://virtualenv.pypa.io/"&gt;&lt;code&gt;virtualenv&lt;/code&gt;&lt;/a&gt;, &lt;a href="https://pip-tools.rtfd.io/"&gt;&lt;code&gt;pip-tools&lt;/code&gt;&lt;/a&gt;, &lt;a href="https://python-poetry.org/"&gt;&lt;code&gt;poetry&lt;/code&gt;&lt;/a&gt;, &lt;a href="https://conda.io/"&gt;&lt;code&gt;conda&lt;/code&gt;&lt;/a&gt; (then &lt;a href="https://mamba.readthedocs.io/"&gt;&lt;code&gt;mamba&lt;/code&gt;&lt;/a&gt;), and probably some others I'm forgetting. Each promised to solve Python's packaging complexity, but these were all tools I had to fight against (I'm looking at you &lt;code&gt;conda&lt;/code&gt;).&lt;/p&gt;
+&lt;p&gt;And here's the tab:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;E |----------------------------|----------------------------|
+B |----------------------------|----------------------------|
+G |----------------------------|----------------------------|
+D |----------------------------|----------------------------|
+A |-----1--4--1--5-------------|--------6--5--3--5----------|
+E |--3-----------------9-------|--2-------------------------|
+
+
+----------------------------|----------------------------|
+----------------------------|----------------------------|
+----------------------------|--8--4--------6--4----------|
+----------------------------|--------6--2--------3--3----|
+--8--9--7--9--3--2--3-------|----------------------------|
+----------------------------|----------------------------|
+
+
+----------------------------|
+----------------------------|
+--8-------------------------|
+-----3--2-------------------|
+----------------------------|
+----------------------------|
+
+
+----------------------------------------------------|----------------|
+----------------------------------------------------|--1--9--7--1----|
+--------------------------------------4-------------|----------------|
+--7h-9--5h-0--2-----------8-----8-------------------|----------------|
+----------------------------------------------------|----------------|
+----------------------------------------------------|----------------|
+
+
+----------------------------|----------------||
+--6h-9--3s-9--9--3--7--5----|--1--0--5-------||
+----------------------------|----------------||
+----------------------------|----------------||
+----------------------------|----------------||
+----------------------------|----------------||
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Muzak at best. But now I've got 50 digits of pi memorized, so I can't complain.&lt;/p&gt;
+&lt;p&gt;I suspect there are some novel tunings we could come up with to actually write coherent music that stays in key, regardless 
+of the 0-9 integer jump. Though that's an experiment that will wait for another day. &lt;/p&gt;</content><category term="General"></category></entry><entry><title>uv</title><link href="https://forestdussault.com/uv-package-manager.html" rel="alternate"></link><published>2025-07-22T17:27:00-04:00</published><updated>2025-07-22T17:27:00-04:00</updated><author><name>Forest Dussault</name></author><id>tag:forestdussault.com,2025-07-22:/uv-package-manager.html</id><summary type="html">&lt;p&gt;Solving our Python dependency management woes&lt;/p&gt;</summary><content type="html">&lt;p&gt;I've been using Python for over a decade, cycling through &lt;a href="https://virtualenv.pypa.io/"&gt;&lt;code&gt;virtualenv&lt;/code&gt;&lt;/a&gt;, &lt;a href="https://pip-tools.rtfd.io/"&gt;&lt;code&gt;pip-tools&lt;/code&gt;&lt;/a&gt;, &lt;a href="https://python-poetry.org/"&gt;&lt;code&gt;poetry&lt;/code&gt;&lt;/a&gt;, &lt;a href="https://conda.io/"&gt;&lt;code&gt;conda&lt;/code&gt;&lt;/a&gt; (then &lt;a href="https://mamba.readthedocs.io/"&gt;&lt;code&gt;mamba&lt;/code&gt;&lt;/a&gt;), and probably some others I'm forgetting. Each promised to solve Python's packaging complexity, but these were all tools I had to fight against (I'm looking at you &lt;code&gt;conda&lt;/code&gt;).&lt;/p&gt;
 &lt;p&gt;Thankfully, we now have &lt;a href="https://docs.astral.sh/uv/"&gt;&lt;code&gt;uv&lt;/code&gt;&lt;/a&gt;. We've adopted it at my workplace, transitioning our major repos from &lt;code&gt;poetry&lt;/code&gt;. The process was seamless, and our CI build systems are now substantially faster. I've also been adopting it for all of my personal projects.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Migration caveat&lt;/strong&gt;: When transitioning from &lt;code&gt;poetry&lt;/code&gt; to &lt;code&gt;uv&lt;/code&gt;, be aware that the dependency solvers use different resolution logic. Even with identical pinned package versions in your &lt;code&gt;pyproject.toml&lt;/code&gt;, the resulting lockfiles will contain different transitive dependencies. This can introduce subtle bugs or behavioral changes, so testing is essential during migration.&lt;/p&gt;
 &lt;h2&gt;Mass adoption&lt;/h2&gt;
