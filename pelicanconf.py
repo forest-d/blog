@@ -30,7 +30,7 @@ DEFAULT_PAGINATION = False
 # RELATIVE_URLS = True
 THEME = "themes/cid"
 
-STATIC_PATHS = ["images"]
+STATIC_PATHS = ["images", "audio"]
 
 # Markdown extensions for syntax highlighting
 MARKDOWN = {

@@ -9,6 +9,12 @@
     margin: 1.5em auto; /* Keep the auto margin to center images */
 }
 
+.post audio {
+    display: block;
+    width: 100%;
+    margin: 1.5em 0;
+}
+
 /* Image caption styling */
 .image-container {
     display: block;
